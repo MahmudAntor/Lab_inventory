@@ -1,0 +1,77 @@
+@font-face {
+             font-family: "ourFont";
+             src: url("../fonts/Ubuntu-Medium.ttf");
+             }
+
+@font-face {
+             font-family: "Lobster";
+             src: url("../fonts/Lobster-Regular.ttf");
+             }
+
+@font-face {
+             font-family: "spirax";
+             src: url("../fonts/Spirax-Regular.ttf");
+             }
+
+body{
+      	background-color: #fffff3 !important;
+            font-family: "ourFont";
+      }
+.box{
+            cursor: pointer;
+            display: block;
+            height: 100px; 
+            padding-top: 15px;
+            background-color: #2A0934;
+      }
+
+/*.btn{
+      	background-color: #2A0934;
+      }*/
+
+.lfont{
+   font-size: 20px !important;
+}
+
+form {
+     text-transform: capitalize; 
+}
+
+h1, h2, h3, h4, h5, h6{
+            text-transform: capitalize;
+      	    color: #FB9902 !important;
+            font-family: 'Lobster';
+      }
+.highlight{
+      	background-color: #4DA210;
+      }
+.in-middle{
+      /*display: block;*/
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      }
+      .logo
+      {
+      display: block;
+      }
+ .txtgreen {
+      color: #00D8FF !important;
+      font-family: 'Lobster' !important;
+}
+
+.txtdark{
+      color: #663d00 !important;
+      font-family: 'Lobster' !important;
+
+}
+.bgc-dark{
+      background-color: #2A0934;
+}
+
+.font-lobster{
+        font-family: 'Lobster' !important;
+}
+.font-spirax{
+   font-family: 'spirax' !important;
+}
