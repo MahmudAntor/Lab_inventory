@@ -47,13 +47,13 @@ $query = mysqli_query($conn, $sql);*/
 		
 		
 		<table class="table table-responsive data-table">
-			<h1 class="jumbotron txtgreen in-middle">Profit/Loss</h1>
+			<h1 class="jumbotron txtgreen in-middle">Deficiency</h1>
 			<thead>
 				<tr>
 				   <th>Item_Id</th>
 				   <th>Item_name</th>
 					
-					<th>Profit/Loss</th>
+					<th>Deficiency</th>
 					<!-- <th>Per unit price(selling)</th> -->
 					
 					<!-- <th>Total price</th> -->

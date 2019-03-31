@@ -55,7 +55,7 @@ $get_string = "?admin_name=$admin_name";
 					</div>
 
 					<div class="col-sm-4"><br><br><br>
-						<a href="profit_calc.php" class="btn box"><h2 class="page-heading">Profit</h2></a>
+						<a href="def_calc.php" class="btn box"><h2 class="page-heading">Deficiency</h2></a>
 					</div>
 
 				</div><br><br>

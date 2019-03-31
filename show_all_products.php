@@ -61,7 +61,7 @@ $query = mysqli_query($conn, $sql);*/
 					 <th>Per unit price(buying)</th>
 					<th>Last Update Date</th>
 					 <th>Total buying price</th> 
-					 <th>Per unit price(selling)</th>
+					
 					
 				</tr>
 			</thead>
@@ -79,7 +79,7 @@ $query = mysqli_query($conn, $sql);*/
 				 <td>'.$row['Per_unit_buying_price'].'</td>
 				<td>'.date("d-m-Y", strtotime($row['Last_Update_Date'])).'</td>
 				 <td>'.$row['Total_price'].'</td>
-			      <td>'.$row['per_unit_selling_price'].'</td>
+			    
 					</tr>';
 					// $total += $row['Total_price'];
 					$no++;

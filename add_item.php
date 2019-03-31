@@ -25,7 +25,7 @@
 		//$Probable_date=$_POST['Probable_date'];
 		$Min_quant=$_POST['Min_quant'];
 		$Max_quant=$_POST['Max_quant'];
-    $selling_price=$_POST['per_unit_selling_price'];
+    
 		
 			$sql= "SELECT * FROM inventory WHERE entry_id='$entry_id'";
 			$stid  = mysqli_query($conn, $sql);
@@ -43,7 +43,7 @@
 				
 				
 				//include('include/inc_item_id.php');
-				$item_insert="INSERT INTO items VALUES ( '$item_id', '$name', '$Quantity' , '$buying_price', -1,'$selling_price', '$entry_id')";
+				$item_insert="INSERT INTO items VALUES ( '$item_id', '$name', '$Quantity' , '$buying_price', -1, 0, '$entry_id')";
 				$item_query = mysqli_query($conn, $item_insert);
         if (!$item_query) die('item_query');
 				include('include/calc_total_price.php');
@@ -91,7 +91,7 @@
 				
 				//$updateq= "UPDATE items, inventory SET items.Total_price = items.Quantity * items.Per_unit_price WHERE items.entry_id = inventory.entry_id
 				
-				header('Location: show_all_products.php');
+				header('Location: show_all_products.php?admin_name=<?=$admin_name?>');
 			} 
 			else{
 				$error="This ID already used.";
@@ -148,7 +148,7 @@
 
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="fa fa-shopping-bag"> Quantity</i></span>
-                            <input class="form-control" type="text" name='Quantity' placeholder="quantity in kg" required>        
+                            <input class="form-control" type="text" name='Quantity' placeholder="quantity" required>        
                         </div>
                   
                         <div class="form-group input-group">
@@ -165,11 +165,7 @@
                             <input class="form-control" type="text" name='Min_quant' placeholder="Minimum quantity before out of stock" required>
                         </div>     
 
-                         <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-usd"> Price per unit(selling)</i></span>
-                            <input class="form-control" type="text" name='per_unit_selling_price' placeholder="Selling price per unit in taka" required>
-                        </div>                         
-                        
+                         
                 <button class="btn btn-primary col-sm-offset-5 col-sm-2" type="submit"> Add </button> <br><br>
               </div>
               </fieldset>
