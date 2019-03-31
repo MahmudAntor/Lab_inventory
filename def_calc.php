@@ -9,13 +9,19 @@
 		if(!$conn){
 			die('Failed to connect to MySQL: '.mysqli_connect_error());
 		}
+        $sql=  '\'UPDATE out_stock, inventory set out_stock.OOS_status=\'Yes\', out_stock.OS_status=\'No\'\n"
 
-		
-		
-		$sql = 'SELECT i.Item_id, i.Name, ((i.per_unit_selling_price-i.per_unit_buying_price)*(sum(o.Order_Amount))) as Profit FROM items as i, orders as o, contains as c WHERE i.Item_id=c.Item_id AND c.Order_id=o.order_id group by i.Item_id';
+         . "        		WHERE inventory.Quantity < out_stock.Min_quant*1.20 AND inventory.entry_id = out_stock.entry_id"';
+		mysqli_query($conn, $sql);
+		$sql= '\'UPDATE out_stock, inventory set out_stock.OOS_status=\'No\', out_stock.OS_status=\'Yes\' 
+		      WHERE inventory.Quantity > out_stock.Max_quant*0.80 AND inventory.entry_id = out_stock.entry_id';
+        mysqli_query($conn, $sql);
+       $sql= 'UPDATE out_stock, inventory set out_stock.OOS_status=\'-\', out_stock.OS_status=\'-\' WHERE inventory.Quantity < out_stock.Max_quant*0.80 AND inventory.Quantity > out_stock.Min_quant*1.20 AND inventory.entry_id = out_stock.entry_id';		
+			  mysqli_query($conn, $sql);
+		$sql = 'SELECT * 
+			FROM out_stock';
 		//echo ''.$sql.'<br>';
 		$query = mysqli_query($conn, $sql);
-		//$result=mysqli_store_result($conn);
 		/*$sql = 'SELECT * 
 		FROM inventory';
 		
@@ -26,7 +32,7 @@ $query = mysqli_query($conn, $sql);*/
 	 ?>
 <html>
 <head>
-	<title>INVENTORY</title>
+	<title>Out of stock status</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -36,59 +42,40 @@ $query = mysqli_query($conn, $sql);*/
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 	<style type="text/css">
-
 		
 	</style>
 </head>
 <body>
 	<?php include('include/nav.php'); ?>
-
-	<div class="container">
+	<div class="container container-fluid">
 		
 		
-		<table class="table table-responsive data-table">
-			<h1 class="jumbotron txtgreen in-middle">Deficiency</h1>
+		<table class="data-table table table-responsive">
+			<h1 class="in-middle txtgreen">Out Of Stock & Overstock Report</h1> <br>
 			<thead>
 				<tr>
-				   <th>Item_Id</th>
-				   <th>Item_name</th>
-					
-					<th>Deficiency</th>
-					<!-- <th>Per unit price(selling)</th> -->
-					
-					<!-- <th>Total price</th> -->
-					
+					<th>Id</th>
+					<th>Item Name</th>
+					<th>Deficiency_status</th>
 					
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 					$no = 1;
-					//$total = 0;	
-							
-					while($row = mysqli_fetch_array($query)) {  
+					$total = 0;
+					while ($row = mysqli_fetch_array($query)) {
 						//$amount = $row['amount'] == 0 ? '' : number_format($row['amount']);
 				echo '<tr>
-				<td>'.$row['Item_id'].'</td>
-				<td>'.$row['Name'].'</td>
+				<td>'.$row['Id'].'</td>
+				<td>'.$row['Item_name'].'</td>
+				<td>'.$row['OOS_status'].'</td>
 				
-				
-				<td>'.$row['Profit'].'</td>
 					</tr>';
-					// $total += $row['TP'];
 					$no++;
 					}
-					
-
 				?>
 			</tbody> 
-			<!-- <tfoot> -->
-				<!-- <tr class = "danger"> -->
-					<!-- <th colspan="4">Total</th> -->
-					<!-- <th> <?= number_format($total)?></th> -->
-				<!-- </tr> -->
-
-			<!-- </tfoot> -->
 			
 		</table>
 		
