@@ -61,7 +61,7 @@
                         <input class="form-control" type="password" name='password' placeholder="Password" required>     
                     </div> 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-info col-sm-offset-4 col-sm-4 bgc-dark">Login</button>
+                        <button type="submit" class="btn btn-info col-sm-offset-4 col-sm-4 bgc-dark">Authenticate</button>
                     </div>
                 </form>      
     </div>
