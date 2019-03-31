@@ -56,12 +56,7 @@ $query = mysqli_query($conn, $sql);*/
 				<tr>
 					<th>Id</th>
 					<th>Item Name</th>
-					<th>Min Quantity</th>
-					<th>Max Quantity</th>
-					<th>Probable Date</th>
-					<th>OOS_status</th>
-					<th>OS_status</th>
-					
+					<th>Deficiency_status</th>
 					
 				</tr>
 			</thead>
@@ -74,11 +69,7 @@ $query = mysqli_query($conn, $sql);*/
 				echo '<tr>
 				<td>'.$row['Id'].'</td>
 				<td>'.$row['Item_name'].'</td>
-				<td>'.$row['Min_quant'].'</td>
-				<td>'.$row['Max_quant'].'</td>
-				<td>'.date("d-m-Y", strtotime($row['Probable_date'])).'</td>
 				<td>'.$row['OOS_status'].'</td>
-				<td>'.$row['OS_status'].'</td>
 				
 					</tr>';
 					$no++;
