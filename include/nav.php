@@ -13,10 +13,8 @@
 	    <ul class="nav navbar-nav">
 	      <li><a href="add_item.php<?=$get_string?>">New Entry</a></li>
 	      <li><a href="all_products.php<?=$get_string?>">Modify Entry</a></li>
-	      <li><a href="outofstock.php">Out of Stock</a></li>
-	      <li><a href="outofstock.php">Over Stock</a></li>
-	      <li><a href="profit_calc.php">Profit</a></li>
-	      <li><a href="customer.php">Customers</a></li>
+	      <li><a href="outofstock.php">Out of Stock/Over Stock</a></li>
+	      <li><a href="def_calc.php">Deficiency</a></li>
 	      <li><a href="Order.php">Order Report</a></li>
 	      <li><a href="search_by.php">Search</a></li>
 	      <li><a href="index.php">Log Out</a></li>
