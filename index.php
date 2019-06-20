@@ -61,7 +61,7 @@
                         <input class="form-control" type="password" name='password' placeholder="Password" required>     
                     </div> 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-info col-sm-offset-4 col-sm-4 bgc-dark">Login</button>
+                        <button type="submit" class="btn btn-info col-sm-offset-4 col-sm-4 bgc-dark">Authenticate</button>
                     </div>
                 </form>      
     </div>
@@ -71,7 +71,7 @@
   </div><br>
   	  <?php if ($_SERVER["REQUEST_METHOD"]=="POST"): ?>
  <div class="row">
-  <div class="alert alert-warning col-sm-offset-3 col-sm-6" style="text-align: center;"> <strong>Login failed!</strong> Please check your credentials and try again!</div></div>        
+  <div class="alert alert-warning col-sm-offset-3 col-sm-6" style="text-align: center;"> <strong>Authentication failed!</strong> Please check your credentials and try again!</div></div>        
         <?php endif; ?>
 </div>
 
