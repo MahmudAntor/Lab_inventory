@@ -5,6 +5,17 @@
 		
 		$id=$_POST['id'];
 		$pass=$_POST['password'];
+		$sid=$_POST['stud'];
+		
+		if($sid==1)
+		{
+			$sql="SELECT * FROM management WHERE (id='$id' || name='$id') AND password='$pass' ";
+		$mysqli_result=mysqli_query($conn,$sql); 
+		
+		$count=mysqli_num_rows($mysqli_result);
+		$row=mysqli_fetch_array($mysqli_result,MYSQLI_ASSOC);
+		header('Location: management_control.php');
+		}
 		
 		$sql="SELECT * FROM admin WHERE username='$id' AND password='$pass'";
 		$mysqli_result=mysqli_query($conn,$sql); 
@@ -58,7 +69,10 @@
                     </div>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
-                        <input class="form-control" type="password" name='password' placeholder="Password" required>     
+                        <input class="form-control" type="password" name='password' placeholder="Password" required>                           
+                    </div> 
+                     <div class="form-group input-group">
+                        <input type="checkbox" name="stud" value="1"> Department Management<br>    
                     </div> 
                     <div class="form-group">
                         <button type="submit" class="btn btn-info col-sm-offset-4 col-sm-4 bgc-dark">Authenticate</button>
